@@ -1,9 +1,10 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.model.DO.WorkOrderDO;
 import com.example.demo.service.TaiYueService;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,9 +18,9 @@ public class TaiYueController {
     @Resource
     private TaiYueService taiYueService;
 
-    @RequestMapping("test")
+    @RequestMapping(value = "test", method = RequestMethod.GET)
     @ResponseBody
-    public String test() {
+    public WorkOrderDO test() {
         return taiYueService.testSQL();
     }
 }

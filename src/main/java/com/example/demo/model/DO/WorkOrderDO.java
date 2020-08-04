@@ -2,6 +2,8 @@ package com.example.demo.model.DO;
 
 import lombok.Data;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Data

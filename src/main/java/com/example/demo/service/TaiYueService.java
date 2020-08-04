@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 
-import com.alibaba.fastjson.JSONObject;
 import com.example.demo.mapper.WorkOrderMapper;
 import com.example.demo.model.DO.WorkOrderDO;
 import com.example.demo.util.HtmlParserUtil;
@@ -110,14 +109,14 @@ public class TaiYueService {
     }
 
 
-    public String testSQL() {
+    public WorkOrderDO testSQL() {
         WorkOrderDO workOrderDO = new WorkOrderDO();
         workOrderDO.setWorkNo("888");
-    //    workOrderMapper.insertWorkOrder(workOrderDO);
-        List<WorkOrderDO> asdads = workOrderMapper.listWorkOrder("22");
+        //    workOrderMapper.insertWorkOrder(workOrderDO);
+        List<WorkOrderDO> asdads = workOrderMapper.listWorkOrder();
         if (CollectionUtils.isEmpty(asdads)) {
-            return "null";
+            return null;
         }
-        return asdads.get(0).getWorkNo();
+        return asdads.get(0);
     }
 }
