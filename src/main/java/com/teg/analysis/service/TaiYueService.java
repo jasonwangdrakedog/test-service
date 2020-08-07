@@ -79,14 +79,13 @@ public class TaiYueService {
     public List<WorkOrderDTO> findWorkOrder(WorkOrderQueryREQ workOrderQueryREQ) {
         List<WorkOrderDTO> dtoList = Lists.newArrayList();
         List<WorkOrderDO> doList = workOrderMapper.listWorkOrder(workOrderQueryREQ);
-        if (CollectionUtils.isEmpty(doList)) {
-            return Lists.newArrayList();
+        if (!CollectionUtils.isEmpty(doList)) {
+            doList.forEach(workOrderDO1 -> {
+                WorkOrderDTO workOrderDTO = new WorkOrderDTO();
+                BeanUtils.copyProperties(workOrderDO1, workOrderDTO);
+                dtoList.add(workOrderDTO);
+            });
         }
-        doList.forEach(workOrderDO1 -> {
-            WorkOrderDTO workOrderDTO = new WorkOrderDTO();
-            BeanUtils.copyProperties(workOrderDO1, workOrderDTO);
-            dtoList.add(workOrderDTO);
-        });
         return dtoList;
     }
 }

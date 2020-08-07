@@ -12,35 +12,15 @@ import java.util.List;
 public class Page<T> {
     private List<T> data;
 
-    private Boolean success;
-
     private String msg;
 
-    private Integer page;
+    private Integer page = 0;
 
-    private Integer pageSize;
+    private Integer pageSize = 0;
 
+    private Integer total = 0;
 
-    public static <T> Page success(List<T> data) {
-        return new Page().data(data);
-    }
-
-    public static <T> Page fail(String msg) {
-        return new Page().msg(msg);
-    }
-
-
-    public Page data(List<T> data) {
-        this.data = data;
-        this.success = true;
-        return this;
-    }
-
-    public Page msg(String msg) {
-        this.success = false;
-        this.msg = msg;
-        return this;
-    }
+    private Boolean success;
 
 
 }
